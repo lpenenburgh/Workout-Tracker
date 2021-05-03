@@ -1,6 +1,9 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const apiRoutes = require("./routes/api-routes")
+const htmlRoutes = require("./routes/html-routes")
+const Workout = require("./models/Workout");
 
 const PORT = process.env.PORT || 3000;
 
@@ -17,9 +20,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
 });
 
-//does there need to be a .js at the end?
-app.use(require("./routes/api-routes"));
-app.use(require("./routes/html-routes"));
+app.use(apiRoutes);
+app.use(htmlRoutes);
+
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
