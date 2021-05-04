@@ -17,13 +17,13 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/workout", 
+  process.env.MONGODB_URI || 'mongodb+srv://lpenenburgh:root@cluster0.egcbh.mongodb.net/workout?retryWrites=true&w=majority',
   {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false 
-}
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
 );
 
 app.use(apiRoutes);
@@ -31,5 +31,5 @@ app.use(htmlRoutes);
 
 
 app.listen(PORT, () => {
-    console.log(`App running on port ${PORT}!`);
-  });
+  console.log(`App running on port ${PORT}!`);
+});
