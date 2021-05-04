@@ -1,6 +1,6 @@
 const router = require("express").Router();
 //does this need .js at the end?
-const Workout = require("../models/Workout");
+const Workout = require("../models/Workout.js");
 
 //get all workouts and their duration
 router.get("/api/workouts", (req, res) => {
